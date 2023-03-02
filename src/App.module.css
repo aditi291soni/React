@@ -1,0 +1,54 @@
+.main{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(66, 52, 52);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    height: 80%;
+    width: 30%;
+    background-color: rgb(205, 205, 231);
+    overflow: auto;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px ;
+    border: 2px solid black;
+}
+.semi{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+textarea{
+    height: 7vh;
+    width: 20vw;
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.button{
+    height: 70px;
+    width: 70px;
+    display: flex;
+    font-size: 60px;
+    border: 2px solid black;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(221, 234, 234);
+    border-radius: 50%;
+}
+.map{
+    background-color: rgb(235, 227, 227);
+    margin: 9px;
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 5px;
+    justify-content: space-between;
+}

@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import css from './App.module.css'
 
-function App() {
+const App = () => {
+    const [list, setlist] = useState([]);
+    const [singleitem, setsingleitem] = useState("");
+    const changeHandler=(e)=>{
+setsingleitem(e.target.value )
+console.log(singleitem)
+    }
+    const deleteHandler=(ids)=>{
+      let deletes=list.filter((e,id)=>{
+        return id!==ids
+        })
+        setlist(deletes)
+    }
+    const submitHandler=(e)=>{
+       
+        if(singleitem.length>0){
+
+            setlist([...list,{desc:singleitem,date:new Date(Date.now()).toLocaleString()}])
+            setsingleitem("")
+        }
+     
+            }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={css.main}>
+      <div className={css.box}>
+    <h2 style={{margin:"20px"}}>TODO LIST</h2>
+   
+    <div className={css.semi}> 
+       <div onClick={submitHandler} className={css.button}>+</div>
+        <textarea onChange={changeHandler} value={singleitem} name='desc' placeholder='Enter Your Task'>
+
+        </textarea>
+        </div>
+        {
+          list&&list.map((e,id)=>(
+               <div className={css.map}>
+<p>{e.desc}</p>
+<p><i onClick={()=>deleteHandler(id)} class="ri-delete-bin-5-fill"></i></p>
+
+               </div>
+            ))
+        }
+        
+
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
